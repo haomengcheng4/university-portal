@@ -1,0 +1,29 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm p-4 mx-auto text-center" style="max-width: 600px;">
+        <h2 class="mb-4">Application Submitted</h2>
+        <p class="mb-4">Your scholarship application has been submitted successfully.</p>
+        <a href="{% url 'student_dashboard' %}" class="btn btn-outline-secondary">Back to Dashboard</a>
+    </div>
+</div>
+
+<!-- Custom CSS for additional styling -->
+<style>
+    /* Custom styles for the card and button */
+    .card {
+        border: none;
+        border-radius: 10px;
+        background-color: #ffffff;
+    }
+    .btn-outline-secondary {
+        border-radius: 5px;
+        padding: 8px 20px;
+        transition: background-color 0.3s;
+    }
+    .btn-outline-secondary:hover {
+        background-color: #007bff; 
+    }
+</style>
+{% endblock %}

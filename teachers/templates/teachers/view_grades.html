@@ -1,0 +1,32 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Assigned Grades</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Student</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Grade</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for grade in grades %}
+                <tr>
+                    <td>{{ grade.student.username }}</td>
+                    <td>{{ grade.subject.name }}</td>
+                    <td>{{ grade.grade }}</td>
+                    <td>
+                        <a href="{% url 'update_grade' grade.id %}" class="btn btn-sm btn-warning">Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="{% url 'teacher_dashboard' %}" class="btn btn-primary mt-3">Back to Dashboard</a>
+</div>
+{% endblock %}

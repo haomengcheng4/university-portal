@@ -1,0 +1,24 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Update Grade</h2>
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="{{ form.student.id_for_label }}" class="form-label">Student</label>
+            {{ form.student }}
+        </div>
+        <div class="mb-3">
+            <label for="{{ form.subject.id_for_label }}" class="form-label">Subject</label>
+            {{ form.subject }}
+        </div>
+        <div class="mb-3">
+            <label for="{{ form.grade.id_for_label }}" class="form-label">Grade</label>
+            {{ form.grade }}
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    <a href="{% url 'view_grades' %}" class="btn btn-secondary">Back to Grades</a>
+</div>
+{% endblock %}

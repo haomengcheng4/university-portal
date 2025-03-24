@@ -1,0 +1,74 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Your Class Schedule</h2>
+    <div class="card shadow-sm p-4 mx-auto" style="max-width: 1000px;">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Day</th>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">End Time</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Classroom</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for schedule in schedules %}
+                    <tr>
+                        <td>{{ schedule.day_of_week }}</td>
+                        <td>{{ schedule.start_time }}</td>
+                        <td>{{ schedule.end_time }}</td>
+                        <td>{{ schedule.subject.name }}</td>
+                        <td>{{ schedule.classroom.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'student_dashboard' %}" class="btn btn-outline-primary">Back to Dashboard</a>
+    </div>
+</div>
+
+<!-- Custom CSS for additional styling -->
+<style>
+    /* Custom styles for the card and table */
+    .card {
+        border: none;
+        border-radius: 10px;
+        background-color: #ffffff;
+    }
+    .table {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .thead-dark {
+        background-color: #007bff;
+        color: white;
+    }
+    .table-hover tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid #dee2e6;
+    }
+    .btn-outline-primary {
+        border: 1px solid #007bff;
+        color: #007bff;
+        background-color: white; /* White background */
+        border-radius: 5px;
+        padding: 8px 20px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .btn-outline-primary:hover {
+        background-color: #007bff; /* Blue background on hover */
+        color: white; /* White text on hover */
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Welcome, {{ user.username }}</h2>
+    <p class="text-center mb-4">This is the teacher dashboard.</p>
+    <div class="card shadow-sm p-4 mx-auto" style="max-width: 600px;">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="{% url 'view_grades' %}" class="text-decoration-none">View & Manage Grades</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'create_announcement' %}" class="text-decoration-none">Post an Announcement</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'view_announcements' %}" class="text-decoration-none">View Announcements</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'teacher_schedule' %}" class="text-decoration-none">View Teaching Schedule</a>
+            </li>
+        </ul>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'logout' %}" class="btn btn-outline-danger">Logout</a>
+    </div>
+</div>
+
+<!-- Custom CSS for additional styling -->
+<style>
+    /* Custom styles for the card and list */
+    .card {
+        border: none;
+        border-radius: 10px;
+        background-color: #ffffff;
+    }
+    .list-group-item {
+        border: 1px solid #e9ecef;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        transition: box-shadow 0.3s;
+    }
+    .list-group-item:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .list-group-item a {
+        color: #007bff;
+        font-weight: 500;
+    }
+    .list-group-item a:hover {
+        color: #0056b3;
+    }
+    .btn-outline-danger {
+        border: 1px solid #dc3545;
+        color: #dc3545;
+        background-color: white; /* White background */
+        border-radius: 5px;
+        padding: 8px 20px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .btn-outline-danger:hover {
+        background-color: #dc3545; /* Red background on hover */
+        color: white; /* White text on hover */
+    }
+</style>
+{% endblock %}
