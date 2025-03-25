@@ -155,3 +155,18 @@ AUTH_USER_MODEL = 'users.CustomUser'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'dbname',
+#         'USER': 'mysqlusername',
+#         'PASSWORD': 'mysqlpassword',
+#         'HOST': 'localhost',  # Or your MySQL server IP
+#         'PORT': '3306',       # MySQL default port
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#             'charset': 'utf8mb4',
+#         },
+#     }
+# }
